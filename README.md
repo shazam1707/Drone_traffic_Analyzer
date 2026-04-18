@@ -14,7 +14,7 @@ A desktop application for automated vehicle detection, tracking, and reporting f
 6. [Tracking Methodology & Edge Cases](#tracking-methodology--edge-cases)
 7. [Engineering Assumptions](#engineering-assumptions)
 8. [Project Structure](#project-structure)
-9. [Known Limitations](#known-limitations)
+
 
 ---
 
