@@ -84,14 +84,14 @@ pip install PyQt6 opencv-python ultralytics supervision openpyxl numpy
 
 ### 4. Download the YOLO model weights
 
-On first run, Ultralytics will automatically download `yolov8n.pt` (~6 MB) into the working directory. If you are in a restricted network environment, download it manually:
+On first run, Ultralytics will automatically download `yolov8s.pt` (~22 MB) into the working directory. If you are in a restricted network environment, download it manually:
 
 ```bash
 # From the project root
-python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
+python -c "from ultralytics import YOLO; YOLO('yolov8s.pt')"
 ```
 
-To use a more accurate (but slower) model, replace `YOLO_MODEL = "yolov8n.pt"` with `"yolov8s.pt"` or `"yolov8m.pt"` in `core/pipeline.py`.
+To use a more accurate (but slower) model, replace `YOLO_MODEL = "yolov8s.pt"` with `"yolov8m.pt"` in `core/pipeline.py`.
 
 ### 5. Run the application
 
@@ -272,6 +272,7 @@ smart-drone-traffic-analyzer/
     ├── worker.py            # VideoWorker QObject — thread bridge
     ├── pipeline.py          # CV pipeline — YOLO + ByteTrack
     └── reporter.py          # Excel report writer
+
 ```
 
 ---
