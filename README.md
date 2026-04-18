@@ -232,27 +232,14 @@ It does **not** account for:
 
 ### Model utilisation
 
-YOLOv8 small was chosen as the default for three reasons: it ships as a single ~6 MB file with no separate download step, it runs at real-time speeds on CPU, and its COCO training includes sufficient drone-perspective vehicle examples for reasonable accuracy. It is not fine-tuned on aerial imagery.
+YOLOv8 small was chosen as the default for three reasons: it ships as a single ~22 MB file with no separate download step, it runs at real-time speeds on CPU, and its COCO training includes sufficient drone-perspective vehicle examples for reasonable accuracy. It is not fine-tuned on aerial imagery.
 
 ### Accuracy vs inference speed trade-off
 
-The two primary levers for this trade-off are `FRAME_SKIP` and `YOLO_MODEL`:
-
-| Configuration | Processing speed | Accuracy risk |
-|---|---|---|
-| `yolov8n.pt`, `FRAME_SKIP=2` | ~15–20 fps (CPU) | May miss fast vehicles; nano model has lower mAP |
-| `yolov8s.pt`, `FRAME_SKIP=2` | ~8–12 fps (CPU) | Better detection; same skip risk |
-| `yolov8n.pt`, `FRAME_SKIP=1` | ~8–10 fps (CPU) | Highest recall; slowest on CPU |
-| `yolov8n.pt`, `FRAME_SKIP=2` | ~60+ fps (GPU) | Recommended for production |
-
-
+The two primary levers for this trade-off are `FRAME_SKIP` and `YOLO_MODEL`. Larger models provide higher accuracy but runs slower for a given hardware. This can be accounted for by skipping frames, which reduces computation cost. 
 
 The `MAX_DIMENSION = 1280` resize cap provides an additional speed gain on 4K footage with minimal accuracy loss, since YOLOv8's default inference resolution is 640px — frames are already being downsampled internally. Capping at 1280px before inference avoids unnecessary memory bandwidth with no meaningful detection quality trade-off.
 
-
-### Output video quality
-
-The annotated output video is written at the **original input resolution** using the `mp4v` codec. This prioritises visual quality for review purposes. File sizes can be large for long 4K recordings. A production pipeline might add a configurable output resolution or use `h264` encoding (requires OpenCV built with FFmpeg).
 
 ---
 
