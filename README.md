@@ -6,16 +6,15 @@ A desktop application for automated vehicle detection, tracking, and reporting f
 
 ## Table of Contents
 
-1. [Demo](#demo)
-2. [Features](#features)
-3. [Requirements](#requirements)
-4. [Local Setup](#local-setup)
-5. [Usage](#usage)
-6. [Architecture](#architecture)
-7. [Tracking Methodology & Edge Cases](#tracking-methodology--edge-cases)
-8. [Engineering Assumptions](#engineering-assumptions)
-9. [Project Structure](#project-structure)
-10. [Known Limitations](#known-limitations)
+1. [Features](#features)
+2. [Requirements](#requirements)
+3. [Local Setup](#local-setup)
+4. [Usage](#usage)
+5. [Architecture](#architecture)
+6. [Tracking Methodology & Edge Cases](#tracking-methodology--edge-cases)
+7. [Engineering Assumptions](#engineering-assumptions)
+8. [Project Structure](#project-structure)
+9. [Known Limitations](#known-limitations)
 
 ---
 
@@ -264,7 +263,7 @@ smart-drone-traffic-analyzer/
 │
 ├── main.py                  # Entry point
 ├── requirements.txt
-├── README.md
+
 │
 ├── ui/
 │   └── main_window.py       # PyQt6 MainWindow — all GUI code
